@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart n Datatables</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+</head>
+<body>
+    <!-- chart section -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.js"></script>
+    <div class="chart">
+        <h1>Chart JS</h1>
+        <canvas id="barchart" style="height: 400px; width: 90%;"></canvas>
+    </div>
+
+    <!-- Datatables section -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+    <div class="tables">
+        <h1>Data Tables</h1>
+        <table id="tables6" class="display" style="width: 90%;"></table>
+    </div>
+
+
+    <script>
+        // chart section
+        function barChart(){
+            fetch("data.json")
+            .then(response => response.json())
+            .then(data =>{
+                const year = data.map(item => item.Year);
+                const total_profit = data.map(item => item.Total_Profit);
+                var ctx = document.getElementById('barchart').getContext('2d')
+
+                new Chart (ctx,{
+                    type: 'bar',
+                    data:{
+                        labels: year,
+                        datasets:[{
+                            label: 'Yearly Profit',
+                            data: total_profit,
+                            backgroundColor: '#e29578',
+                            borderColor: '#000000',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                        }
+                    },
+                })
+            })
+        }
+
+        // Data tables section
+
+        function dataTables(){
+            fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
+                const data_table = data
+                $('#tables6').DataTable({
+                    data: data_table,
+                    columns: [
+                        {title:'Year',data:'Year'},
+                        {title:'Country',data:'Country'},
+                        {title:'Total_Revenue',data:'Total_Revenue'},
+                    ]
+                });
+            });
+        }
+
+        window.onload = function(){
+            barChart();
+            dataTables();
+        }
+    </script>
+</body>
+</html>

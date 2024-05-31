@@ -1,0 +1,31 @@
+[{
+  "Country": "United States",
+  "Year": "2012",
+  "Sub_Category": "Road Bikes",
+  "Total_Profit": "1026560",
+  "Total_Revenue": "2686804"
+}, {
+  "Country": "United States",
+  "Year": "2011",
+  "Sub_Category": "Road Bikes",
+  "Total_Profit": "993347",
+  "Total_Revenue": "2599539"
+}, {
+  "Country": "United States",
+  "Year": "2015",
+  "Sub_Category": "Mountain Bikes",
+  "Total_Profit": "936261",
+  "Total_Revenue": "2062930"
+}, {
+  "Country": "United States",
+  "Year": "2016",
+  "Sub_Category": "Mountain Bikes",
+  "Total_Profit": "794702",
+  "Total_Revenue": "1753317"
+}, {
+  "Country": "United States",
+  "Year": "2015",
+  "Sub_Category": "Road Bikes",
+  "Total_Profit": "777225",
+  "Total_Revenue": "2034983"
+}]
